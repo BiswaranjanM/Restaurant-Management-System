@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+html, body { height: 100%; }
+body { 
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container-fluid{
+    margin: 0% 2%;
+    width: 96;
+}
+
+.filter-panel{
+    mat-dialog-container {
+        border-radius: 20px 0 0 20px;
+    }   
+}
+
+.orange{
+    color:rgba(251, 109, 58, 1);
+}
+
+.disabled-color{
+    color: rgba(98, 98, 100, 1);
+}
+
+.orange-button{
+    background-color:rgba(251, 109, 58, 0.1); 
+    color: rgba(251, 109, 58);
+}
+
+.disabled-button{
+    background-color:#F7F7F7; 
+    color: rgba(98, 98, 100, 1);
+}
+
+.blue-button{
+    color: rgba(80, 62, 157);
+    background-color:rgba(80, 62, 157, 0.1)
+}

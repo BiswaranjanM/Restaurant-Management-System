@@ -1,0 +1,49 @@
+#filter{
+    padding-left: 24px
+}
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sortBy, .cuisine{
+    margin-top: 2rem;
+}
+.orange-button {
+    background-color: rgba(251, 109, 58, 0.1);
+    color: #fb6d3a;
+}
+.open{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.cuisine-item{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.seeMore{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.filter-button{
+    position: absolute;
+    width: 360px;
+    border-radius: 12px;
+    height: 64px;
+    bottom: 25px;
+}

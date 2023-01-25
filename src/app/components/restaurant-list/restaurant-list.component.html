@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div id="header">
+        <div>
+            <button mat-flat-button color="primary" class="navbar-button">
+                <mat-icon class="material-icons-outlined">navigate_before</mat-icon>
+            </button>
+        </div>
+        <div id="right-item">
+            <div class="store">
+                <div style="font-weight: 500; margin-right: 2rem;">
+                    <mat-icon color="primary" class="material-icons-outlined" style="font-size: 30px;height: 30px;width: 45px;">store</mat-icon> Da Otto
+                </div>
+                <div>
+                    <mat-icon id="order-button-icon" class="material-icons-outlined">
+                        unfold_more
+                    </mat-icon>
+                </div>
+            </div>
+            <div>
+                <input id="search" type="text" placeholder="Search for Restaurants (Press Enter to search)" (keydown.enter)="searchRestaurant($event.target)" />
+            </div>
+            <button mat-flat-button color="primary" style="margin-right: 1rem;" class="navbar-button" (click)="openFilterPanel()">
+                <mat-icon class="material-icons-outlined">filter_list</mat-icon>
+            </button>
+            <button mat-flat-button style="margin-right: 1rem; background: #FB6D3A; color:rgb(247, 247, 247);" class="navbar-button">
+                <mat-icon class="material-icons-outlined">shopping_cart</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="category-header">
+        <h2>Category</h2>
+    </div>
+
+    <div id="category">
+        <div *ngFor="let category of categoryList; index as i" class="cat">
+            <img src="../../../assets/images/category{{i+1}}.svg" alt=""> 
+            <button mat-flat-button class="category-name" [class.blue-button] = "this.filterCategoryList.indexOf(category) >= 0"
+                (click) ="addToCategoryFilter(category)">{{category}}</button> 
+        </div>
+    </div>
+
+    <div class="category-header">
+        <h2>Restaurant</h2>
+    </div>
+
+    <div id="restaurant">
+        <div *ngFor="let restaurant of allRestaurant" class="restaurant-item">
+            <img src="{{restaurant.restaurantImage}}" class="restaurant-img"  alt="">
+            <div class="restaurant-name">
+                <h3 style="margin: 0; font-weight: 500;">{{restaurant.restaurantName}}</h3>
+                <button mat-flat-button class="blue-button" *ngIf="restaurant.isOpen" (click)="openRestaurantDetails(restaurant.restaurantName)">Open Now</button>
+                <button mat-flat-button class="orange-button" *ngIf="!restaurant.isOpen" (click)="openRestaurantDetails(restaurant.restaurantName)">Closed</button>
+            </div>
+            <p style="text-align: justify;">{{restaurant.restaurantDescription}}</p>
+        </div>
+    </div>
+
+</div>

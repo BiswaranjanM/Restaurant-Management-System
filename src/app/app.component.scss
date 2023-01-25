@@ -1,0 +1,8 @@
+.mat-drawer-container{
+    min-height: -webkit-fill-available;    
+}
+::ng-deep {
+    .cdk-overlay-container {
+        backdrop-filter: blur(6px);
+    }
+}

@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div id="header">
+        <button mat-flat-button color="primary" class="leftpanel-button">
+            <mat-icon class="material-icons-outlined">navigate_before</mat-icon>
+        </button>
+        <button mat-flat-button color="accent" style="margin-right: 1rem;" class="leftpanel-button">
+            <mat-icon class="material-icons-outlined">shopping_cart</mat-icon>
+        </button>
+    </div>
+
+    <div id="detail" *ngIf = "!!restaurantDetail">
+        <div style="width: 50%; padding-right: 2%;">
+            <h1>
+                {{restaurantDetail.restaurantName}}
+            </h1>
+            <p class="description">{{restaurantDetail.restaurantDescription}}</p>
+
+            <div class="detail-item">
+                <mat-icon class="material-icons-outlined">schedule</mat-icon>
+                <p innerHtml="{{restaurantDetail.openingHours}}"></p>
+            </div>
+            <div class="detail-item">
+                <mat-icon class="material-icons-outlined">phone</mat-icon>
+                <p>{{restaurantDetail.contactNumber}}</p>
+            </div>
+            <div class="detail-item">
+                <mat-icon class="material-icons-outlined">language</mat-icon>
+                <p>{{restaurantDetail.websiteUrl}}</p>
+            </div>
+
+        </div>
+        <div style="width: 50%;">
+            <img id="detail-img" src="{{restaurantDetail.restaurantImage}}" alt="">
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="category">
+        <div class="category-item">
+            <div *ngFor="let item of categoryList; index as i">
+                <button mat-flat-button 
+                    class="orange-button" [class.disabled-button] = "!selectedCategory.includes(item)" (click)="toggle(item)">
+                    {{item}} {{item === 'All' ? "" : '(' + categoryQty[i] + ')'}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <h2 style="margin-top: 2rem;">Menu</h2>
+
+    <div id="menu">
+        <div *ngFor="let item of menuItems" class="menu-item">
+            <img src="{{item.itemPhoto}}" class="menu-img"  alt="">
+            <div class="menu-name">
+                <h3 style="margin: 0; font-weight: 500;">{{item.itemName}}</h3>
+                <h3 style="margin: 0; font-weight: 500;" class="item-cost">{{item.itemCost}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

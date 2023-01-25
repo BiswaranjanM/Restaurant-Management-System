@@ -1,0 +1,46 @@
+<div id="filter">
+    <div id="header">
+        <h2 style="margin: 0;">
+            Search Filters
+        </h2>
+        <mat-icon class="material-icons-outlined" style="cursor: pointer;" (click)="close()">
+            close
+        </mat-icon>
+    </div>
+
+    <div class="sortBy">
+        <h2>Sort By</h2>
+        <div class="open orange">
+            <img src="../../../assets/images/open.svg" alt="">
+            open
+        </div>
+    </div>
+
+    <div class="cuisine">
+        <h2>Cuisine</h2>
+        
+        <div class="cuisine-item">
+            <div *ngFor="let item of data.cuisineList">
+                <button mat-flat-button 
+                    class="orange-button"
+                *ngIf="cuisineSelectedList.includes(item)" (click)="toggle(item)">
+                    {{item}}
+                </button>
+                <button mat-flat-button class="disabled-button" 
+                *ngIf="!cuisineSelectedList.includes(item)" (click)="toggle(item)">
+                    {{item}}
+                </button>    
+            </div>
+        </div>
+    </div>
+    <div class="seeMore">
+        <p style="margin: 0;" class="orange">See more</p>
+        <mat-icon class="material-icons-outlined" style="cursor: pointer;">
+            expand_more
+        </mat-icon>
+    </div>
+
+    <button mat-raised-button color="primary" class="filter-button" (click)="close()">
+        Apply Filters
+    </button>
+</div>
